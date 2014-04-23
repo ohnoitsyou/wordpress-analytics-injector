@@ -134,6 +134,13 @@ class analytics_injector {
       'type'    => 'text',
       'std'     => 'example.com'
     );
+    $this->settings['attribution'] = array(
+      'section' => 'general',
+      'title'   => __('Enable Link attribution'),
+      'desc'    => '',
+      'type'    => 'checkbox',
+      'std'     => 0
+    );
   }
 
   public function initialize_settings() {
@@ -194,7 +201,9 @@ class analytics_injector {
     $ua = $opts['ua']; 
     $domain = $opts['domain'];
     $enable = $opts['enable'];
-    if($ua != "UA-XXXXXXXX-X" && $enable) {
+    if($ua != "UA-XXXXXXXX-X" && $enable && $domain != "example.com") {
+      if($attribution) {
+        $attribution-line = "ga('require', 'linkid', linkid.js');";
       echo "
     <!-- Begin Analytics tracking code -->
     <script>
@@ -204,6 +213,7 @@ class analytics_injector {
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', '$ua', '$domain');
+      $attribution-line
       ga('send', 'pageview');
 
     </script>
