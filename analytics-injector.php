@@ -2,7 +2,7 @@
 /* Plugin Name: Analytics injector 
  * Description: Plain Jane Analytics Injector
  * Author: David Young
- * Version: 1.0
+ * Version: 1.1
  */
 
 class analytics_injector {
