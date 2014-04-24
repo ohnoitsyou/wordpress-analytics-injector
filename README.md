@@ -7,7 +7,7 @@ Will not add analytics on the admin backend
 
 Options
 ====
-Enabled
-UA Code
-Domain
-Link atrribution
+* Enabled
+* UA Code
+* Domain
+* Link atrribution
